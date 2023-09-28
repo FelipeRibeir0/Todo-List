@@ -4,19 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <script src="js/app.js" defer></script>
     <title>To do List</title>
   </head>
   <body>
     <div class="container">
-      <div class="todoApp">
+      <main class="todoApp">
         <h2>To-Do List</h2>
         <div class="row">
-          <input type="text" id="input-box" placeholder="Adicione sua tarefa" />
+          <input
+            type="text"
+            id="input-box"
+            placeholder="Adicione sua tarefa"
+            role="listitem"
+          />
           <button id="submit-button">+</button>
         </div>
         <ul id="list-container"></ul>
-      </div>
+      </main>
     </div>
   </body>
 </html>

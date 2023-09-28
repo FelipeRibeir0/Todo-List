@@ -5,23 +5,23 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
-  background: linear-gradient(45deg, #00c4c4, #5375b4, #3b2570);
-}
-
 .container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #00c4c4, #5375b4, #3b2570);
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .todoApp {
   max-width: 540px;
   background: #ccc;
   padding: 40px 30px 70px;
   border-radius: 10px;
 }
+
 .todoApp h2 {
   color: #3b2570;
   display: flex;
@@ -32,7 +32,6 @@ body {
 .row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   background: #edeef0;
   border-radius: 30px;
   padding-left: 20px;
@@ -59,6 +58,7 @@ body {
   border-radius: 40px;
   cursor: pointer;
 }
+
 #list-container li {
   list-style: none;
   font-size: 17px;
