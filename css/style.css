@@ -11,8 +11,9 @@
   background: linear-gradient(45deg, #00c4c4, #5375b4, #3b2570);
   padding: 10px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  flex-direction: column;
 }
 
 .todoApp {
@@ -20,6 +21,7 @@
   background: #ccc;
   padding: 40px 30px 70px;
   border-radius: 10px;
+  margin-bottom: 5px;
 }
 
 .todoApp h2 {
@@ -50,12 +52,14 @@
 #submit-button {
   border: none;
   outline: none;
-  padding: 16px 40px;
-  background: #55aaaa;
+  padding: 6px 30px;
+  background: linear-gradient(to right, #00000000, #55aaaa, #43cccc);
   color: white;
   font-size: 22px;
   font-weight: bolder;
   border-radius: 40px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
   cursor: pointer;
 }
 
@@ -89,19 +93,48 @@
   background-image: url("../img/checked.png");
 }
 
-#list-container li span {
-  position: absolute;
-  right: 0;
-  top: 5px;
-  width: 40px;
-  height: 40px;
-  font-size: 22px;
+#list-container li i {
+  width: 26px;
+  height: 26px;
+  font-size: 16px;
   color: #555;
-  line-height: 40px;
+  line-height: 20px;
   text-align: center;
   border-radius: 50%;
+  float: right;
+  margin-left: 10px;
 }
 
-#list-container li span:hover {
+#list-container li i:hover {
   background-color: #bbb;
+}
+
+#list-container input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  border-bottom: 1px solid #3b2570;
+}
+
+#alert {
+  background-color: #e95b5b;
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid darkred;
+  margin-bottom: 5px;
+}
+
+#hidden {
+  display: none;
+}
+
+.fa-circle-exclamation {
+  color: darkred;
+  background-color: white;
+  border-radius: 100%;
+}
+
+.fa-circle-plus {
+  font-size: 35px;
 }
