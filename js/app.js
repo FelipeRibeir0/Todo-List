@@ -1,11 +1,14 @@
 const listContainer = document.getElementById("list-container");
 const inputBox = document.getElementById("input-box");
 const Submitbutton = document.getElementById("submit-button");
+
 const messageBox = document.getElementById("hidden");
+const message = document.getElementById("message");
+const messageIcon = document.getElementById("messageIcon");
 
 function addTask() {
-  if (inputBox.value == "") {
-    messageBox.id = "alert";
+  if (inputBox.value.trim() == "" || inputBox.value.trim() == " ") {
+    showAlert();
   } else {
     messageBox.id = "hidden";
     const li = document.createElement("li");
@@ -19,8 +22,9 @@ function addTask() {
     const editIcon = document.createElement("i");
     editIcon.className = "fa-solid fa-pen";
     li.appendChild(editIcon);
-    inputBox.value = "";
   }
+
+  inputBox.value = "";
   saveTasks();
 }
 
@@ -36,6 +40,7 @@ function editTask(li) {
   const editIcon = document.createElement("i");
   editIcon.className = "fa-solid fa-pen";
 
+  const backupText = li.innerText;
   inputEdit.value = li.innerText;
   inputEdit.maxLength = 35;
   li.innerHTML = "";
@@ -43,23 +48,45 @@ function editTask(li) {
   li.appendChild(trashIcon);
   li.appendChild(editIcon);
 
+  function updateItem() {
+    if (inputEdit.value.trim() !== "") {
+      li.innerHTML = inputEdit.value;
+      console.log("hidden it!");
+      messageBox.id = "hidden";
+    } else {
+      li.innerHTML = backupText;
+      console.log("show it!!");
+      showAlert();
+    }
+
+    li.appendChild(trashIcon);
+    li.appendChild(editIcon);
+    saveTasks();
+  }
+
+  inputEdit.addEventListener("keydown", function (e) {
+    if (e.key === " " && inputEdit.value.endsWith(" ")) {
+      e.preventDefault();
+    }
+  });
+
   inputEdit.addEventListener("keyup", function (e) {
     if (e.key === "Enter") {
-      li.innerHTML = inputEdit.value;
-      li.appendChild(trashIcon);
-      li.appendChild(editIcon);
-      saveTasks();
+      updateItem();
     }
   });
 
   inputEdit.addEventListener("blur", function () {
-    li.innerHTML = inputEdit.value;
-    li.appendChild(trashIcon);
-    li.appendChild(editIcon);
-    saveTasks();
+    updateItem();
   });
 
   inputEdit.focus();
+}
+
+function showAlert() {
+  messageBox.id = "alert";
+  message.innerText = "É necessário que você escreva algo";
+  messageIcon.className = "fa-solid fa-circle-exclamation";
 }
 
 listContainer.addEventListener("click", function (e) {
@@ -78,6 +105,12 @@ Submitbutton.addEventListener("click", addTask);
 inputBox.addEventListener("keyup", function (e) {
   if (e.key === "Enter") {
     addTask();
+  }
+});
+
+inputBox.addEventListener("keydown", function (e) {
+  if (e.key === " " && inputBox.value.endsWith(" ")) {
+    e.preventDefault();
   }
 });
 
