@@ -6,7 +6,7 @@
 }
 
 .container {
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
   background: linear-gradient(45deg, #00c4c4, #5375b4, #3b2570);
   padding: 10px;
@@ -18,7 +18,7 @@
 
 .todoApp {
   max-width: 540px;
-  background: #ccc;
+  background-color: #ccc;
   padding: 40px 30px 70px;
   border-radius: 10px;
   margin-bottom: 5px;
@@ -28,13 +28,14 @@
   color: #3b2570;
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-bottom: 20px;
 }
 
 .row {
   display: flex;
   align-items: center;
-  background: #edeef0;
+  background-color: #edeef0;
   border-radius: 30px;
   padding-left: 20px;
   margin-bottom: 25px;
@@ -43,9 +44,9 @@
 #input-box {
   border: none;
   outline: none;
-  background: transparent;
+  background-color: transparent;
   padding: 10px;
-  width: 100vw;
+  width: 100%;
   font-size: 16px;
 }
 
@@ -66,10 +67,11 @@
 #list-container li {
   list-style: none;
   font-size: 17px;
-  padding: 12px 8px 12px 50px;
+  padding: 8px 8px 8px 50px;
   user-select: none;
   cursor: pointer;
   position: relative;
+  height: 46px;
 }
 
 #list-container li::before {
@@ -94,12 +96,13 @@
 }
 
 #list-container li i {
-  width: 26px;
-  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 31px;
   font-size: 16px;
   color: #555;
   line-height: 20px;
-  text-align: center;
   border-radius: 50%;
   float: right;
   margin-left: 10px;
@@ -112,7 +115,7 @@
 #list-container input {
   border: none;
   outline: none;
-  background: transparent;
+  background-color: transparent;
   font-size: 16px;
   border-bottom: 1px solid #3b2570;
 }
@@ -137,4 +140,83 @@
 
 .fa-circle-plus {
   font-size: 35px;
+}
+
+/* Mobiles */
+
+@media screen and (max-width: 576px) {
+  .todoApp {
+    width: 70%;
+  }
+  .row {
+    width: 100%;
+    height: 45px;
+  }
+  #input-box {
+    width: 100%;
+    height: 25px;
+    font-size: 12px;
+  }
+  #submit-button {
+    height: 100%;
+    background: linear-gradient(to right, #58ffff1a, #55aaaa, #43cccc);
+    width: 40%;
+  }
+  .fa-circle-plus {
+    font-size: 25px;
+  }
+
+  #list-container li {
+    font-size: 14px;
+  }
+
+  #list-container li::before {
+    height: 22px;
+    width: 22px;
+    top: 8px;
+  }
+
+  #list-container li i {
+    font-size: 16px;
+  }
+
+  #list-container input {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .todoApp {
+    padding: 20px 10px;
+  }
+
+  #submit-button {
+    padding: 6px 30px 6px 15px;
+    width: 15%;
+  }
+  .fa-circle-plus {
+    font-size: 18px;
+  }
+
+  #list-container li {
+    font-size: 12px;
+    padding: 6px 8px 6px 35px;
+    height: 30px;
+  }
+
+  #list-container li::before {
+    height: 18px;
+    width: 18px;
+    top: 6px;
+  }
+
+  #list-container li i {
+    font-size: 12px;
+    width: 20px;
+    margin-left: 3px;
+  }
+
+  #list-container input {
+    width: 40%;
+  }
 }
